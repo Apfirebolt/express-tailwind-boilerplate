@@ -1,0 +1,26 @@
+{
+  "name": "express-tailwind-boilerplate",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A simple boilerplate for Express.js and Tailwind CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind:css": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "postcss-cli": "^10.0.0"
+  }
+}
