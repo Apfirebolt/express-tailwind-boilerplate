@@ -25,12 +25,12 @@ app.use(express.static(path.join(__dirname, 'assets')));
 
 // Define a route to render index.hbs
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { 'pageTitle': 'Home' });
 });
 
 // About page with dashboard layout
 app.get('/about', (req, res) => {
-    res.render('about', { layout: 'dashboard' });
+    res.render('about', { layout: 'dashboard', 'pageTitle': 'About' });
 });
 
 // Start the server
