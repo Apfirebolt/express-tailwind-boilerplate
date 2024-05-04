@@ -1,53 +1,96 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>{{{title}}}</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="bg-white">
         <div class="relative overflow-hidden">
             <header class="relative">
-            <div class="bg-gray-900 pt-6">
-                <nav class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6" aria-label="Global">
-                <div class="flex items-center flex-1">
-                    <div class="flex items-center justify-between w-full md:w-auto">
-                    <a href="#">
-                        <span class="sr-only">Workflow</span>
-                        <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg" alt="">
-                    </a>
-                    <div class="-mr-2 flex items-center md:hidden">
-                        <button id="openMenuButton" type="button" class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <!-- Heroicon name: outline/menu -->
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
+                <div class="bg-gray-900 pt-6">
+                    <nav class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
+                        aria-label="Global">
+                        <div class="flex items-center flex-1">
+                            <div class="flex items-center justify-between w-full md:w-auto">
+                                <a href="#">
+                                    <span class="sr-only">Workflow</span>
+                                    <img class="h-8 w-auto sm:h-10"
+                                        src="https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg"
+                                        alt="">
+                                </a>
+                                <div class="-mr-2 flex items-center md:hidden">
+                                    <button id="openMenuButton" type="button"
+                                        class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
+                                        aria-expanded="false">
+                                        <span class="sr-only">Open main menu</span>
+                                        <!-- Heroicon name: outline/menu -->
+                                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 6h16M4 12h16M4 18h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="hidden space-x-8 md:flex md:ml-10">
+                                <a href="#" class="text-base font-medium text-white hover:text-gray-300">Product</a>
+
+                                <a href="#" class="text-base font-medium text-white hover:text-gray-300">Features</a>
+
+                                <a href="#" class="text-base font-medium text-white hover:text-gray-300">Marketplace</a>
+
+                                <a href="#" class="text-base font-medium text-white hover:text-gray-300">Company</a>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:items-center md:space-x-6">
+                            <a href="#" class="text-base font-medium text-white hover:text-gray-300">
+                                Log in
+                            </a>
+                            <a href="#"
+                                class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
+                                Start free trial
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+
+                <form action="/login" method="post" role="form"
+                    class="container mx-auto mt-2 grid py-10 grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                    <div class="sm:col-span-2">
+                        <label for="email" class="block text-sm font-medium">Email</label>
+                        <div class="mt-1">
+                            <input type="email" name="email" id="email"
+                                class="py-2 px-4 block w-full shadow-sm text-gray-700 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                placeholder="Enter Your Email">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="password" class="block text-sm font-medium">Password</label>
+                        <div class="mt-1">
+                            <input type="password" name="password" id="password"
+                                class="py-2 px-4 block w-full shadow-sm text-gray-700 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300 rounded-md"
+                                placeholder="Enter Your Password">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2 sm:flex sm:justify-end">
+                        <button type="submit"
+                            class="mt-2 w-full inline-flex items-center justify-center p-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-500 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:w-auto">
+                            Login
                         </button>
                     </div>
-                    </div>
-                    <div class="hidden space-x-8 md:flex md:ml-10">
-                    <a href="#" class="text-base font-medium text-white hover:text-gray-300">Product</a>
 
-                    <a href="#" class="text-base font-medium text-white hover:text-gray-300">Features</a>
+                    <p class="text-lg">
+                        Don't have an account? <a href="/register"
+                            class="text-teal-500 hover:text-teal-600">Register</a>
+                    </p>
+                </form>
 
-                    <a href="#" class="text-base font-medium text-white hover:text-gray-300">Marketplace</a>
-
-                    <a href="#" class="text-base font-medium text-white hover:text-gray-300">Company</a>
-                    </div>
-                </div>
-                <div class="hidden md:flex md:items-center md:space-x-6">
-                    <a href="#" class="text-base font-medium text-white hover:text-gray-300">
-                    Log in
-                    </a>
-                    <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
-                    Start free trial
-                    </a>
-                </div>
-                </nav>
-            </div>
-
-            <!--
+                <!--
                 Mobile menu, show/hide based on menu open state.
 
                 Entering: "duration-150 ease-out"
@@ -57,125 +100,166 @@
                 From: "opacity-100 scale-100"
                 To: "opacity-0 scale-95"
             -->
-            <div id="mobileMenu" class="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
-                <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                <div class="px-5 pt-4 flex items-center justify-between">
-                    <div>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg" alt="">
-                    </div>
-                    <div class="-mr-2">
-                    <button id="closeMenuButton" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600">
-                        <span class="sr-only">Close menu</span>
-                        <!-- Heroicon name: outline/x -->
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                    </div>
-                </div>
-                <div class="pt-5 pb-6">
-                    <div class="px-2 space-y-1">
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Product</a>
-
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Features</a>
-
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Marketplace</a>
-
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Company</a>
-                    </div>
-                    <div class="mt-6 px-5">
-                    <a href="#" class="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700">Start free trial</a>
-                    </div>
-                    <div class="mt-6 px-5">
-                    <p class="text-center text-base font-medium text-gray-500">Existing customer? <a href="#" class="text-gray-900 hover:underline">Login</a></p>
-                    </div>
-                </div>
-            </div>
-            </div>
-            </header>
-            <main>
-            <div class="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
-                <div class="mx-auto max-w-7xl lg:px-8">
-                <div class="lg:grid lg:grid-cols-2 lg:gap-8">
-                    <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
-                    <div class="lg:py-24">
-                        <a href="#" class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
-                        <span class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full">We're hiring</span>
-                        <span class="ml-4 text-sm">Visit our careers page</span>
-                        <!-- Heroicon name: solid/chevron-right -->
-                        <svg class="ml-2 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        </a>
-                        <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                        <span class="block">A better way to</span>
-                        <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">ship web apps</span>
-                        </h1>
-                        <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.
-                        </p>
-                        <div class="mt-10 sm:mt-12">
-                        <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
-                            <div class="sm:flex">
-                            <div class="min-w-0 flex-1">
-                                <label for="email" class="sr-only">Email address</label>
-                                <input id="email" type="email" placeholder="Enter your email" class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
+                <div id="mobileMenu" class="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
+                    <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+                        <div class="px-5 pt-4 flex items-center justify-between">
+                            <div>
+                                <img class="h-8 w-auto"
+                                    src="https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg" alt="">
                             </div>
-                            <div class="mt-3 sm:mt-0 sm:ml-3">
-                                <button type="submit" class="block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">Start free trial</button>
+                            <div class="-mr-2">
+                                <button id="closeMenuButton" type="button"
+                                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600">
+                                    <span class="sr-only">Close menu</span>
+                                    <!-- Heroicon name: outline/x -->
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
                             </div>
+                        </div>
+                        <div class="pt-5 pb-6">
+                            <div class="px-2 space-y-1">
+                                <a href="#"
+                                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Product</a>
+
+                                <a href="#"
+                                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Features</a>
+
+                                <a href="#"
+                                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Marketplace</a>
+
+                                <a href="#"
+                                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">Company</a>
                             </div>
-                            <p class="mt-3 text-sm text-gray-300 sm:mt-4">Start your free 14-day trial, no credit card necessary. By providing your email, you agree to our <a href="#" class="font-medium text-white">terms of service</a>.</p>
-                        </form>
+                            <div class="mt-6 px-5">
+                                <a href="#"
+                                    class="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700">Start
+                                    free trial</a>
+                            </div>
+                            <div class="mt-6 px-5">
+                                <p class="text-center text-base font-medium text-gray-500">Existing customer? <a
+                                        href="#" class="text-gray-900 hover:underline">Login</a></p>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                    <div class="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
-                    <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-                        <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
-                        <img class="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg" alt="">
-                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+                    <div class="mx-auto max-w-7xl lg:px-8">
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                            <div
+                                class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
+                                <div class="lg:py-24">
+                                    <a href="#"
+                                        class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
+                                        <span
+                                            class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full">We're
+                                            hiring</span>
+                                        <span class="ml-4 text-sm">Visit our careers page</span>
+                                        <!-- Heroicon name: solid/chevron-right -->
+                                        <svg class="ml-2 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                    <h1
+                                        class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                        <span class="block">A better way to</span>
+                                        <span
+                                            class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">ship
+                                            web apps</span>
+                                    </h1>
+                                    <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
+                                        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat
+                                        commodo. Elit sunt amet fugiat veniam occaecat fugiat.
+                                    </p>
+                                    <div class="mt-10 sm:mt-12">
+                                        <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
+                                            <div class="sm:flex">
+                                                <div class="min-w-0 flex-1">
+                                                    <label for="email" class="sr-only">Email address</label>
+                                                    <input id="email" type="email" placeholder="Enter your email"
+                                                        class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
+                                                </div>
+                                                <div class="mt-3 sm:mt-0 sm:ml-3">
+                                                    <button type="submit"
+                                                        class="block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">Start
+                                                        free trial</button>
+                                                </div>
+                                            </div>
+                                            <p class="mt-3 text-sm text-gray-300 sm:mt-4">Start your free 14-day trial,
+                                                no credit card necessary. By providing your email, you agree to our <a
+                                                    href="#" class="font-medium text-white">terms of service</a>.</p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
+                                <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+                                    <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
+                                    <img class="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                                        src="https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg"
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>            
 
-            <!-- CTA Section -->
-            <div class="relative bg-gray-900">
-                <div class="relative h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
-                <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&sat=-100" alt="">
-                <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 mix-blend-multiply"></div>
-                </div>
-                <div class="relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32">
-                <div class="md:ml-auto md:w-1/2 md:pl-10">
-                    <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">
-                    Award winning support
-                    </h2>
-                    <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">
-                    We’re here to help
-                    </p>
-                    <p class="mt-3 text-lg text-gray-300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt duis.
-                    </p>
-                    <div class="mt-8">
-                    <div class="inline-flex rounded-md shadow">
-                        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
-                        Visit the help center
-                        <!-- Heroicon name: solid/external-link -->
-                        <svg class="-mr-1 ml-3 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                        </svg>
-                        </a>
+                <!-- CTA Section -->
+                <div class="relative bg-gray-900">
+                    <div class="relative h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
+                        <img class="w-full h-full object-cover"
+                            src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&sat=-100"
+                            alt="">
+                        <div aria-hidden="true"
+                            class="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 mix-blend-multiply">
+                        </div>
                     </div>
+                    <div
+                        class="relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32">
+                        <div class="md:ml-auto md:w-1/2 md:pl-10">
+                            <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">
+                                Award winning support
+                            </h2>
+                            <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">
+                                We’re here to help
+                            </p>
+                            <p class="mt-3 text-lg text-gray-300">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam
+                                sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet
+                                volutpat quisque ut interdum tincidunt duis.
+                            </p>
+                            <div class="mt-8">
+                                <div class="inline-flex rounded-md shadow">
+                                    <a href="#"
+                                        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                                        Visit the help center
+                                        <!-- Heroicon name: solid/external-link -->
+                                        <svg class="-mr-1 ml-3 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path
+                                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                            <path
+                                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
             </main>
-        <!-- Include footer from partials/footer.hbs -->
-        {{> footer}}    
+            <!-- Include footer from partials/footer.hbs -->
+            {{> footer}}
         </div>
     </div>
 </body>
+
 </html>

@@ -1,11 +1,9 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import LocalStrategy from 'passport-local';
+import User from '../models/User.js';
 
-// Load user model
-const User = mongoose.model('User');
-
-module.exports = function(passport){
+const passportFunction = (passport) => {
   passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
     // Match user
     User.findOne({
@@ -14,7 +12,8 @@ module.exports = function(passport){
       if(!user){
         return done(null, false, {message: 'No User Found'});
       } 
-      // Match password
+      // Match password, user.password is undefined FIX
+      console.log('Password and user password', password, user);
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if(err) throw err;
         if(isMatch){
@@ -36,3 +35,5 @@ module.exports = function(passport){
     });
   });
 }
+
+export default passportFunction;
