@@ -10,12 +10,13 @@ const loginUser = (req, res, next) => {
     if (!errors.isEmpty()) {
       const fieldErrors = [];
       errors.errors.forEach((item) => fieldErrors.push(item.msg));
+      console.log('Returning with errors')
       return res.render("views/login", {
         errors: fieldErrors,
       });
     }
     passport.authenticate("local", {
-      successRedirect: "/resume",
+      successRedirect: "/tasks",
       failureRedirect: "/login",
       failureFlash: true,
       successFlash: "You are successfully logged in",

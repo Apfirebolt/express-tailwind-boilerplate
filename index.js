@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import { engine } from "express-handlebars";
 import passport from "passport";
 import session from "express-session";
@@ -9,13 +10,18 @@ import flash from "connect-flash";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import { loginUser, registerUser } from "./controllers/authController.js";
+import { ensureAuthenticated, ensureGuest } from "./helpers/auth.js";
 import passportFunction from "./config/passport.js";
+import User from "./models/User.js";
 
 // Load config
 dotenv.config();
 
 // Connect to MongoDB
 connectDB();
+
+// invoke passportFunction
+passportFunction(passport);
 
 // Set the view engine to handlebars
 const app = express();
@@ -43,13 +49,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set session middleware
+app.use(cookieParser());
 app.use(
   session({
-    secret: "app_secret",
+    cookie : {
+      maxAge: 3600000 // see below
+    },
+    secret: "secret",
     resave: false,
     saveUninitialized: false,
-    httpOnly: true,
-    cookie: { path: "/", httpOnly: true, maxAge: 36000000 },
   })
 );
 
@@ -67,13 +75,34 @@ app.use(express.static(path.join(__dirname, "assets")));
 app.use(flash());
 
 // Define a route to render index.hbs
-app.get("/", (req, res) => {
-  res.render("index", { pageTitle: "Home" });
+app.get("/", async (req, res) => {
+  if (req.user) {
+    User.findOne({ email: req.user.email }).lean().then((user) => {
+      if (user) {
+        res.render("index", {
+          pageTitle: "Home",
+          user: user
+        });
+      } else {
+        res.render("index", {
+          pageTitle: "Home",
+          user: req.user
+        });
+      }
+    }
+    );
+  } else {
+    res.render("index", { pageTitle: "Home" });
+  }
 });
 
 // About page with dashboard layout
 app.get("/about", (req, res) => {
   res.render("about", { layout: "dashboard", pageTitle: "About" });
+});
+
+app.get("/tasks", ensureAuthenticated, (req, res) => {
+  res.render("tasks", { pageTitle: "Tasks" });
 });
 
 app.get("/login", (req, res) => {
