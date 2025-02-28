@@ -1,9 +1,16 @@
 $(document).ready(function () {
   // Code to be executed when the document is ready
-  console.log("Hello, World!");
+  console.log("Hello, World! dummy");
 
   // Init AOS
   AOS.init();
+
+  // masonry
+  $('.grid').masonry({
+    // options...
+    itemSelector: '.grid-item',
+    columnWidth: 200
+  });
 
   $(".navigation li").hover(function () {
     var isHovered = $(this).is(":hover");
